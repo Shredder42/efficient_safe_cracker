@@ -1,5 +1,5 @@
 import time
-from random import randint, randrange
+from random import randint, randrange, choice
 
 def fitness(combo, attempt):
     '''Compare items in two lists and count the number of matches.'''
@@ -20,6 +20,9 @@ def main():
     best_attempt_grade = fitness(combo, best_attempt)
 
     count = 0
+    unlocked_wheels = [i for i in range(len(combo))]
+    locked_wheels = []
+    solved_wheel = ['-' for i in range(len(combo))]
 
     # evolve guess
     while best_attempt != combo:
@@ -27,17 +30,21 @@ def main():
         next_try = best_attempt[:]
 
         # mutate
-        lockwheel = randrange(0, len(combo))
-        next_try[lockwheel] = randint(0, 9)
+        lock_wheel = randrange(0, len(combo))
+        if lock_wheel not in locked_wheels:
+            next_try[lock_wheel] = randint(0, 9)
 
-        # grade & select
-        next_try_grade = fitness(combo, next_try)
-        if next_try_grade > best_attempt_grade:
-            best_attempt = next_try
-            best_attempt_grade = next_try_grade
+            # grade & select
+            next_try_grade = fitness(combo, next_try)
+            if next_try_grade > best_attempt_grade:
+                best_attempt = next_try
+                best_attempt_grade = next_try_grade
+                solved_wheel[lock_wheel] = next_try[lock_wheel]
+                locked_wheels.append(lock_wheel)
+                print(solved_wheel)
+                print(locked_wheels)
+            count += 1
 
-        count += 1
-        print(best_attempt, next_try)
 
     print('Cracked! {}'.format(best_attempt), end=' ')
     print('in {} tries'.format(count))
