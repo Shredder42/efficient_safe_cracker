@@ -9,6 +9,9 @@ def fitness(combo, attempt):
             grade += 1
     return grade
 
+def show_digit_panel(solved_wheel):
+    print(solved_wheel)
+
 def main():
     '''Use hill climbing method to solve lock combination.'''
     combination = '6822858902'
@@ -36,13 +39,16 @@ def main():
 
             # grade & select
             next_try_grade = fitness(combo, next_try)
-            if next_try_grade > best_attempt_grade:
+            if next_try_grade > best_attempt_grade: # checks if changed wheel TO correct digit
                 best_attempt = next_try
                 best_attempt_grade = next_try_grade
                 solved_wheel[lock_wheel] = next_try[lock_wheel]
                 locked_wheels.append(lock_wheel)
-                print(solved_wheel)
-                print(locked_wheels)
+                show_digit_panel(solved_wheel)
+            elif next_try_grade < best_attempt_grade: # checks if changed wheel FROM correct digit
+                solved_wheel[lock_wheel] = best_attempt[lock_wheel]
+                locked_wheels.append(lock_wheel)
+                show_digit_panel(solved_wheel)
             count += 1
 
 
