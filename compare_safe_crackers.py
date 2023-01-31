@@ -1,5 +1,8 @@
 import time
 from random import randint, randrange
+import statistics
+import matplotlib as plt
+import numpy as np
 
 def fitness(combo, attempt):
     '''Compare items in two lists and count the number of matches.'''
@@ -67,18 +70,23 @@ def efficient_safe_cracker(lock_combo):
 
     return best_attempt, count
 
-def main():
+def collect_data():
+
     original_start_time = time.time()
-    original_safe_cracker(combo)
+    original_attempt = original_safe_cracker(combo)[1]
     original_end_time = time.time()
     original_duration = original_end_time - original_start_time
 
-    print()
+    original_durations.append(original_duration)
+    original_attempts.append(original_attempt)
+
     efficient_start_time = time.time()
-    efficient_safe_cracker(combo)
+    efficient_attempt = efficient_safe_cracker(combo)[1]
     efficient_end_time = time.time()
     efficient_duration = efficient_end_time - efficient_start_time
 
+    efficient_durations.append(efficient_duration)
+    efficient_attempts.append(efficient_attempt)
 
 
 if __name__ == '__main__':
@@ -90,5 +98,15 @@ if __name__ == '__main__':
     # Convert combination to list
     combo = [int(i) for i in combination]
 
-    main()
+    original_durations = []
+    original_attempts = []
+    efficient_durations = []
+    efficient_attempts = []
+    # for i in range(10_000):
+    #     collect_data()
 
+    # print(len(efficient_attempts))
+    # print(statistics.mean(original_attempts))
+    # print(statistics.mean(efficient_attempts))
+    b = np.array([(1.5, 2, 3), (4, 5, 6)])
+    print(b)
