@@ -1,8 +1,8 @@
 import time
 from random import randint, randrange
 import statistics
-import matplotlib as plt
-import numpy as np
+import matplotlib.pyplot as plt
+
 
 def fitness(combo, attempt):
     '''Compare items in two lists and count the number of matches.'''
@@ -102,11 +102,17 @@ if __name__ == '__main__':
     original_attempts = []
     efficient_durations = []
     efficient_attempts = []
-    # for i in range(10_000):
-    #     collect_data()
+    for i in range(10_000):
+        collect_data()
 
-    # print(len(efficient_attempts))
-    # print(statistics.mean(original_attempts))
-    # print(statistics.mean(efficient_attempts))
-    b = np.array([(1.5, 2, 3), (4, 5, 6)])
-    print(b)
+    avg_original_attempts = statistics.mean(original_attempts)
+    avg_original_duration = statistics.mean(original_durations)
+    avg_efficient_attempts = statistics.mean(efficient_attempts)
+    avg_efficient_duration = statistics.mean(efficient_durations)
+
+    print('Average program runtime for original safe cracker = {:.5f} seconds'.format(avg_original_duration))
+    print('\nAverage attempts for original safe cracker = {}'.format(int(avg_original_attempts)))
+    print('\nAverage program runtime for efficient safe cracker = {:.5f} seconds'.format(avg_efficient_duration))
+    print('\nAverage attempts for efficient save cracker = {}'.format(int(avg_efficient_attempts)))
+
+
