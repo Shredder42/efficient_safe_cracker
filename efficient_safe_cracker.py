@@ -1,5 +1,5 @@
 import time
-from random import randint, randrange, choice
+from random import randint, randrange
 
 def fitness(combo, attempt):
     '''Compare items in two lists and count the number of matches.'''
@@ -10,6 +10,7 @@ def fitness(combo, attempt):
     return grade
 
 def show_digit_panel(solved_wheel):
+    '''Simulates the digital panel solving the combo one number at a time.'''
     print(solved_wheel)
 
 def main():
@@ -23,7 +24,6 @@ def main():
     best_attempt_grade = fitness(combo, best_attempt)
 
     count = 0
-    unlocked_wheels = [i for i in range(len(combo))]
     locked_wheels = []
     solved_wheel = ['-' for i in range(len(combo))]
 
@@ -34,7 +34,7 @@ def main():
 
         # mutate
         lock_wheel = randrange(0, len(combo))
-        if lock_wheel not in locked_wheels:
+        if lock_wheel not in locked_wheels: # only go through attempt on unlocked wheels
             next_try[lock_wheel] = randint(0, 9)
 
             # grade & select
