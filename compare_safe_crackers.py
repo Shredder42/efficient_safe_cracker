@@ -124,8 +124,9 @@ if __name__ == '__main__':
     ax.set_title('Attempts to crack safe vs. Program run')
     ax.set_ylim(0, 800)
     ax.legend()
-    # plt.show()
-    # plt.savefig('imgs/attempts_vs_program_run', format='png')
+    plt.savefig('imgs/attempts_vs_program_run.png', format='png')
+    plt.show()
+
 
 
 
