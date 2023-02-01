@@ -15,7 +15,7 @@ James Bond lives life on the edge and can't depend on faulty equipment. Therefor
 
 Below is a graph of the number of attempts it took for each cracker to crack the safe. According to the graph, on only two occasions did the original safe cracker do as well as the new one.
 
-![Attempts graph](imgs/attempts_vs_program_run.png)
+![Attempts graph][imgs/attempts_vs_program_run.png]
 
 The average number of attempts to crack the safe:
 * Original safe cracker: 281
