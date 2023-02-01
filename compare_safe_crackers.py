@@ -125,7 +125,7 @@ if __name__ == '__main__':
     ax.set_ylim(0, 800)
     ax.legend()
     # plt.show()
-    # plt.savefig('imgs/attempts vs program run', format='png')
+    # plt.savefig('imgs/attempts_vs_program_run', format='png')
 
 
 
