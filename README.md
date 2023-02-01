@@ -13,13 +13,12 @@ The new safe cracker uses a similar mechanism, but optimizes it to be faster by 
 ## Convincing Q
 James Bond lives life on the edge and can't depend on faulty equipment. Therefore, I had to convince Q that my safe cracker was better than the old one. To prove this, I ran both safe crackers on 100 differently randomly generated safe codes and compared the results.
 
-Below is a graph of the number of attempts it took for each cracker to crack the safe. According to the graph, on only two occasions did the original safe cracker do as well as the new one.
+Below is a graph of the number of attempts it took for each cracker to crack the safe. According to the graph, on only a few occasions did the original safe cracker do as well as the new one.
 
-<!-- ![Attempts graph](imgs/attempts_vs_program_run.png) -->
-<img src='/imgs/attempts_vs_program_run.png' alt='Attempts graph'>
+![Attempts graph](imgs/attempts_vs_program_run.png)
 
 The average number of attempts to crack the safe:
-* Original safe cracker: 281
-* New safe cracker: 90
+* Original safe cracker: 276
+* New safe cracker: 103
 
 The data is clear that the new safe cracker drastically reduces the amount of time to crack a safe. Q was convinced by the evidence and 007 was issued with the upgraded safe cracker. With the new technology, he will surely stop the next madman bent on world domination!
