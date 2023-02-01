@@ -88,7 +88,6 @@ def collect_data():
     efficient_durations.append(efficient_duration)
     efficient_attempts.append(efficient_attempt)
 
-
 if __name__ == '__main__':
     '''Use hill climbing method to solve lock combination.'''
     # Generate random combination
@@ -102,7 +101,7 @@ if __name__ == '__main__':
     original_attempts = []
     efficient_durations = []
     efficient_attempts = []
-    for i in range(10_000):
+    for i in range(100):
         collect_data()
 
     avg_original_attempts = statistics.mean(original_attempts)
@@ -110,9 +109,25 @@ if __name__ == '__main__':
     avg_efficient_attempts = statistics.mean(efficient_attempts)
     avg_efficient_duration = statistics.mean(efficient_durations)
 
-    print('Average program runtime for original safe cracker = {:.5f} seconds'.format(avg_original_duration))
-    print('\nAverage attempts for original safe cracker = {}'.format(int(avg_original_attempts)))
+    print('\nAverage program runtime for original safe cracker = {:.5f} seconds'.format(avg_original_duration))
+    print('Average attempts for original safe cracker = {}'.format(int(avg_original_attempts)))
     print('\nAverage program runtime for efficient safe cracker = {:.5f} seconds'.format(avg_efficient_duration))
-    print('\nAverage attempts for efficient save cracker = {}'.format(int(avg_efficient_attempts)))
+    print('Average attempts for efficient save cracker = {}'.format(int(avg_efficient_attempts)))
+
+    x_list = [i for i in range(1, 101)]
+
+    fig, ax = plt.subplots()
+    ax.plot(x_list, original_attempts)
+    ax.plot(x_list, efficient_attempts)
+    ax.set_xlabel('Program run number')
+    ax.set_ylabel('Number of attempts to crack safe')
+    ax.set_title('Attempts to crack safe vs. Program run')
+    ax.set_ylim(0, 800)
+    # plt.show()
+    plt.savefig('imgs/attempts vs program run', format='png')
+
+
+
+
 
 
