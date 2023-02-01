@@ -117,14 +117,15 @@ if __name__ == '__main__':
     x_list = [i for i in range(1, 101)]
 
     fig, ax = plt.subplots()
-    ax.plot(x_list, original_attempts)
-    ax.plot(x_list, efficient_attempts)
+    ax.plot(x_list, original_attempts, label='Orignal')
+    ax.plot(x_list, efficient_attempts, label='New')
     ax.set_xlabel('Program run number')
     ax.set_ylabel('Number of attempts to crack safe')
     ax.set_title('Attempts to crack safe vs. Program run')
     ax.set_ylim(0, 800)
+    ax.legend()
     # plt.show()
-    plt.savefig('imgs/attempts vs program run', format='png')
+    # plt.savefig('imgs/attempts vs program run', format='png')
 
 
 
